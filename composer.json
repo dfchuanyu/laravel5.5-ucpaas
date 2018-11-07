@@ -1,0 +1,31 @@
+{
+    "name": "dfchuanyu/laravel5.5-ucpaas",
+    "description": "云之讯 短信Api",
+    "require": {
+		"php": ">=7.0.0",
+		"laravel/framework": "^5.5.*"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "dayu",
+            "email": "414190550@qq.com"
+        }
+    ],
+	"autoload": {
+		"psr-4": {
+			"Dfchuanyu\\Ucpaas\\": "src/"
+		}
+	},
+	"extra": {
+		"laravel": {
+			"providers": [
+				"Dfchuanyu\\Ucpaas\\UcpaasServiceProvider"
+			],
+			"aliases": {
+				"Ucpaas": "Dfchuanyu\\Ucpaas\\UcpaasFacade"
+			}
+		}
+	},
+    "minimum-stability": "dev"
+}
