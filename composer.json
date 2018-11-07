@@ -26,5 +26,6 @@
 				"Ucpaas": "Dfchuanyu\\Ucpaas\\UcpaasFacade"
 			}
 		}
-	}
+	},
+    "minimum-stability": "stable"
 }
