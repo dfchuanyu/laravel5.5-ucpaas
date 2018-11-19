@@ -23,7 +23,7 @@
 				"Dfchuanyu\\Ucpaas\\UcpaasServiceProvider"
 			],
 			"aliases": {
-				"Ucpaas": "Dfchuanyu\\Ucpaas\\UcpaasFacade"
+				"Ucpaas": "Dfchuanyu\\Ucpaas\\Facades"
 			}
 		}
 	},
