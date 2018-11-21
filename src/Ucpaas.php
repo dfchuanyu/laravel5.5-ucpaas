@@ -1,11 +1,9 @@
-﻿<?php
-
+<?php
 /**
- * Created by Notepad++
- * User: UCPAAS NickLuo
- * Date: 2017/11/09
- * Time: 08:28
- * Dec : ucpass php sdk
+ * Created by PhpStorm.
+ * User: dayu
+ * Date: 2018/11/21
+ * Time: 上午11:47
  */
 
 namespace Dfchuanyu\Ucpaas;
@@ -16,13 +14,13 @@ class Ucpaas
 {
     //API请求地址
     const BaseUrl = "https://open.ucpaas.com/ol/sms/";
-	
+
     //开发者账号ID。由32个英文字母和阿拉伯数字组成的开发者账号唯一标识符。
     private $accountSid;
 
     //开发者账号TOKEN
     private $token;
-    
+
     public function  __construct(Repository $config)
     {
         $options = $config->get('ucpaas');
@@ -51,7 +49,7 @@ class Ucpaas
      * @param $method post或get
      * @return mixed|string
      */
-	 
+
     private function connection($url, $body,$method)
     {
         if (function_exists("curl_init")) {
@@ -98,10 +96,10 @@ class Ucpaas
      * @param $templateid   短信模板，可在后台短信产品→选择接入的应用→短信模板-模板ID，查看该模板ID
      * @param null $param   变量参数，多个参数使用英文逗号隔开（如：param=“a,b,c”）
      * @param $uid			用于贵司标识短信的参数，按需选填。
-     * @return mixed|string 
+     * @return mixed|string
      * @throws Exception
      */
-    public function SendSms($appid,$templateid,$param=null,$mobile,$uid){
+    public function sendSms($appid,$templateid,$param=null,$mobile,$uid){
         $url = self::BaseUrl . 'sendsms';
         $body_json = array(
             'sid'=>$this->accountSid,
@@ -116,7 +114,7 @@ class Ucpaas
         $data = $this->getResult($url, $body,'post');
         return $data;
     }
-	
+
 	 /**
 	 群发送短信的function，适用于运营/告警/批量通知等多用户的发送场景
      * @param $appid        应用ID
@@ -124,10 +122,10 @@ class Ucpaas
      * @param $templateid   短信模板，可在后台短信产品→选择接入的应用→短信模板-模板ID，查看该模板ID
      * @param null $param   变量参数，多个参数使用英文逗号隔开（如：param=“a,b,c”）
      * @param $uid			用于贵司标识短信的参数，按需选填。
-     * @return mixed|string 
+     * @return mixed|string
      * @throws Exception
      */
-	public function SendSms_Batch($appid,$templateid,$param=null,$mobileList,$uid){
+	public function sendSmsBatch($appid,$templateid,$param=null,$mobileList,$uid){
         $url = self::BaseUrl . 'sendsms_batch';
         $body_json = array(
             'sid'=>$this->accountSid,
@@ -142,4 +140,4 @@ class Ucpaas
         $data = $this->getResult($url, $body,'post');
         return $data;
     }
-} 
+}
