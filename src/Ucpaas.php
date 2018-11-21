@@ -28,7 +28,7 @@ class Ucpaas
             $this->accountSid = isset($options['accountsid']) ? $options['accountsid'] : '';
             $this->token = isset($options['token']) ? $options['token'] : '';
         } else {
-            throw new Exception("非法参数");
+            throw new \Exception("非法参数");
         }
     }
 
